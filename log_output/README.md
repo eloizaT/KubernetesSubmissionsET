@@ -1,11 +1,12 @@
-# Exercise 1.1
+# Exercise 1.3
 
-Built and published the Docker image based on this version Go code. 
+Created a folder for manifests and moved deployment into a declarative file. 
 
-image name: **eloizat/log_output**
-
-
-### Deployment command used:
+### Tested in both of these deployment commands:
 ``` bash
-kubectl create deployment randstrgenerator-dep --image eloizat/log_output
+kubectl apply -f manifests/deployment.yaml
+```
+
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/eloizaT/KubernetesSubmissionsET/refs/tags/1.3/log_output/manifests/deployment.yaml
 ```

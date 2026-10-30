@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randstrgenerator-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randstrgenerator
+  template:
+    metadata:
+      labels:
+        app: randstrgenerator
+    spec:
+      containers:
+        - name: randstrgenerator
+          image: eloizat/log_output:v1.0.0
