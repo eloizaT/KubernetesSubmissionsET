@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webserver-dep
+  name: mooc-project-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webserver
+      app: mooc-project
   template:
     metadata:
       labels:
-        app: webserver
+        app: mooc-project
     spec:
       containers:
-        - name: webserver
-          image: eloizat/webserver:latest
+        - name: mooc-project
+          image: eloizat/mooc-project:1.0.0

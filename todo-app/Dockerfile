@@ -1,10 +1,10 @@
-FROM alpine:3.21
-
-COPY --from=hashicorp/http-echo:latest /http-echo /http-echo
+FROM nginx:alpine
 
 ENV PORT=8080
 
-EXPOSE 8080
+COPY index.html /usr/share/nginx/html/index.html
 
-ENTRYPOINT ["/bin/sh", "-c", \
-  "exec /http-echo -listen=:${PORT} -text=\"Server started in port ${PORT}\""]
+RUN rm /etc/nginx/conf.d/default.conf
+
+CMD ["/bin/sh", "-c", \
+  "echo \"server { listen ${PORT}; root /usr/share/nginx/html; index index.html; }\" > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]

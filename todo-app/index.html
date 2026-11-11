@@ -1,0 +1,7 @@
+<h1>Project container</h1>
+<p>This container is forwarded to port <span id="port"></span></p>
+
+<script>
+    document.getElementById("port").textContent =
+        window.location.port || "80";
+</script>
